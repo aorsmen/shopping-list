@@ -1,0 +1,22 @@
+.item-actions{
+    margin-left: auto;
+}
+
+.item-actions button{
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.item-actions svg{
+    width: 24px;
+    height: 24px;
+    fill: #fb5209;
+}
+
+.btn-add{
+    margin-left: 10px;
+}

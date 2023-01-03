@@ -1,0 +1,10 @@
+footer{
+    margin-top: 60px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+
+footer b{
+    font-weight: 600;
+}

@@ -1,0 +1,16 @@
+.button{
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+    background: #fff;
+    color: #fb5209;
+    box-shadow: none;
+    /* border: 2px solid #fb5209; */
+    height: 40px;
+    border-radius: 5px;
+}
+
+.button svg{
+    fill: currentColor;
+}

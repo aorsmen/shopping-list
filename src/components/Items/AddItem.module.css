@@ -1,0 +1,24 @@
+.add-item{
+    border: 1px solid #666;
+    border-radius: 3px;
+}
+
+.add-item form{
+    height: 40px;
+    display: flex;
+}
+
+.add-item input{
+    height: 100%;
+    flex: 1;
+    padding: 5px 10px;
+    border: none;
+}
+
+.add-item button{
+    font-size: 40px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: none;
+    color: #666;
+}

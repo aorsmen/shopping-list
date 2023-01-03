@@ -1,0 +1,7 @@
+package-lock.json
+node_modules
+build
+.DS_store
+.wakatime-project
+.vscode
+.eslintcache
