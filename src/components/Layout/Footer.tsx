@@ -1,6 +1,6 @@
 import './Footer.css';
 
-const Footer = props => {
+const Footer = () => {
     return (
         <footer>developed by <b>Code Effect</b></footer>
     );

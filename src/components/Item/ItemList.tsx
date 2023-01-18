@@ -1,34 +1,15 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
-import Item from './Item';
+import { useContext } from 'react';
+import ItemContext from '../../store/item-context';
+import SingleItem from './SingleItem';
 import SvgIcon from '../UI/SvgIcon';
 import styles from './ItemList.module.css';
-import { itemActions } from '../../store/item-slice';
-import { saveData, getData } from '../../store/data-actions';
 
-// Variable for the first page load
-let isInit = true;
+const ItemList = () => {
+    const { reset, items } = useContext(ItemContext);
 
-const ItemList = props => {
-    const items = useSelector(state => state.item.items);
-    const dispatch = useDispatch();
-
-    // Reset entire list
     const resetHandler = () => {
-        dispatch(itemActions.reset());
+        reset();
     };
-
-    useEffect(() => {
-        // If it's not first page load then save the list data. Otherwise get the list data from the local storage
-        if(!isInit){
-            dispatch(saveData(items));
-        }else{
-            dispatch(getData());
-        }
-
-        isInit = false;
-    }, [items, dispatch]);
 
     // If there is no list item, render this
     if(items.length === 0){
@@ -47,7 +28,7 @@ const ItemList = props => {
             </div>
             <ul>
                 {items.map(item => {
-                    return <Item key={item.id} id={item.id} text={item.text} qty={item.qty} checked={item.checked} />;
+                    return <SingleItem key={item.id} data={item} />;
                 })}
             </ul>
         </div>

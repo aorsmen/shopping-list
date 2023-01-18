@@ -1,6 +1,5 @@
-import { useDispatch } from 'react-redux';
-
-import { itemActions } from '../../store/item-slice';
+import { useContext } from "react";
+import ItemContext from "../../store/item-context";
 import SvgIcon from '../UI/SvgIcon';
 import styles from './ItemActions.module.css';
 
@@ -10,22 +9,22 @@ const SVG_ICONS = {
     plus: 'M15.25 10L16.75 10 16.75 15.25 22 15.25 22 16.75 16.75 16.75 16.75 22 15.25 22 15.25 16.75 10 16.75 10 15.25 15.25 15.25z'
 };
 
-const ItemActions = props => {
-    const dispatch = useDispatch();
+const ItemActions: React.FC<{id: string, checked: boolean}> = (props) => {
+    const { changeQty, removeItem } = useContext(ItemContext);
 
-    // Remove item handler
+    // Remove the item
     const removeHandler = () => {
-        dispatch(itemActions.remove(props.id));
+        removeItem(props.id);
     };
 
-    // Increase item quantity
+    // Increase the item's quantity
     const incrementHandler = () => {
-        dispatch(itemActions.increment(props.id));
+        changeQty(props.id, 'INCREMENT');
     };
 
-    // Decrease item quantity
+    // Decrease the item's quantity
     const decrementHandler = () => {
-        dispatch(itemActions.decrement(props.id));
+        changeQty(props.id, 'DECREMENT');
     };
 
     // If checked, render like this
