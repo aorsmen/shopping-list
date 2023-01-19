@@ -5,10 +5,6 @@ export interface itemInterface{
     checked: boolean;
 };
 
-export interface stateInterface{
-    items: itemInterface[]
-};
-
 export interface contextInterface{
     items: itemInterface[],
     addItem: (text: string) => void,
@@ -17,3 +13,5 @@ export interface contextInterface{
     change: (id: string) => void,
     reset: () => void
 };
+
+export type stateType = Pick<contextInterface, "items">;

@@ -1,15 +1,15 @@
 import React, { useReducer, useEffect } from 'react';
 import ItemContext from "./item-context";
-import { stateInterface } from '../interfaces';
+import { stateType } from '../interfaces';
 
-const INITIAL_STATE: stateInterface = {
+const INITIAL_STATE: stateType = {
     items: []
 };
 
 // Variable for the first page load
 let isInit = true;
 
-const itemReducer = (state: stateInterface, action: {type: string, text?: string, id?: string}) => {
+const itemReducer = (state: stateType, action: {type: string, text?: string, id?: string}) => {
     // Setting data on first pade load
     if(action.type === 'SET' && action.text){
         const newData = JSON.parse(action.text);
